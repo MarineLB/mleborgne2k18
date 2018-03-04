@@ -1,3 +1,53 @@
 // -----------------------------------------------------------------------------
 // This file contains styles that are specific to the home page.
 // -----------------------------------------------------------------------------
+.content{
+  display: flex;
+  min-height:100vh;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 80%;
+  margin:auto;
+  padding:6rem 1rem;
+}
+
+.content__title{
+  width:min-content;
+  max-width: 100%;
+}
+.title__pagetitle{
+  font-size:5rem;
+  line-height:1;
+  margin-top:0;
+  margin-bottom:0;
+  width:max-content;
+  max-width: 100%;
+  color: $brand-color;
+  background: $gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+}
+
+.title__subtitle--left{
+  text-align: left;
+  margin-bottom:0;
+}
+
+.title__subtitle--right{
+  text-align: right;
+}
+
+
+
+.illus__svg{
+  position: absolute;
+  z-index: -1;
+  height:90vh;
+  width:auto;
+  &--corner{
+    top:0;
+    right:0;
+  }
+}
