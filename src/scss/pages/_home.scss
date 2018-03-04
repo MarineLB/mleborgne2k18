@@ -64,6 +64,13 @@
 
   a{
     margin-right: 1rem;
+
+    path{
+      transition: all .2s ease-out;
+    }
+    &:hover path{
+      fill:$brand-color;
+    }
   }
 }
 

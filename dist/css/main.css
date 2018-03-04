@@ -440,6 +440,10 @@ a {
     color: #9B9B9B;
     text-decoration: underline; }
 
+a {
+  -webkit-transition: all .2s ease-out;
+  transition: all .2s ease-out; }
+
 @font-face {
   font-family: 'Avenir';
   font-weight: normal;
@@ -588,6 +592,11 @@ h1, h2, h3, h4 {
   position: relative; }
   .content__link a {
     margin-right: 1rem; }
+    .content__link a path {
+      -webkit-transition: all .2s ease-out;
+      transition: all .2s ease-out; }
+    .content__link a:hover path {
+      fill: #C0A9A6; }
 
 svg {
   position: relative; }
