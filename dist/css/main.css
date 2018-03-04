@@ -548,19 +548,30 @@ h1, h2, h3, h4 {
 
 .title__pagetitle {
   position: relative;
-  font-size: 5rem;
+  font-size: 3rem;
   line-height: 1;
   margin-top: 0;
   margin-bottom: 0;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
   max-width: 100%;
   color: #C0A9A6;
   background: linear-gradient(92deg, #eae3ff, #c09eaf 30%, #c0b59e 60%, #9ec09f);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   position: relative; }
+  @media (min-width: 540px) {
+    .title__pagetitle {
+      font-size: 4rem; } }
+  @media (min-width: 1024px) {
+    .title__pagetitle {
+      width: -webkit-max-content;
+      width: -moz-max-content;
+      width: max-content; } }
+  @media (min-width: 1200px) {
+    .title__pagetitle {
+      font-size: 5rem; } }
 
 .title__subtitle {
   position: relative; }
@@ -569,11 +580,14 @@ h1, h2, h3, h4 {
   text-align: left;
   margin-bottom: 0; }
 
-.title__subtitle--right {
-  text-align: right; }
+@media (min-width: 1024px) {
+  .title__subtitle--right {
+    text-align: right; } }
 
 .content__link {
   position: relative; }
+  .content__link a {
+    margin-right: 1rem; }
 
 svg {
   position: relative; }
@@ -581,8 +595,20 @@ svg {
 .illus__svg {
   position: absolute;
   z-index: -1;
-  height: 90vh;
+  height: 40vh;
   width: auto; }
+  @media (min-width: 540px) {
+    .illus__svg {
+      height: 60vh; } }
+  @media (min-width: 768px) {
+    .illus__svg {
+      height: 82vh; } }
+  @media (orientation: portrait) {
+    .illus__svg {
+      max-height: 50vh; } }
+  @media (min-width: 1200px) {
+    .illus__svg {
+      height: 90vh; } }
   .illus__svg--corner {
     top: 0;
     right: 0; }
