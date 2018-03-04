@@ -7,4 +7,6 @@ document.addEventListener('DOMContentLoaded', function () {
   TweenMax.from('.title__subtitle--right', 0.7, {delay: 2, opacity: 0, top: '50px', ease: Power2.easeOut})
   TweenMax.from('.content__link', 0.3, {delay: 3, opacity: 0, ease: Power2.easeOut})
 
+  TweenMax.from('#corner', 0.3, {delay: 1, morphSVG: "#cornermove"})
+
 })

@@ -443,9 +443,9 @@ a {
 @font-face {
   font-family: 'Avenir';
   font-weight: normal;
-  src: url("./fonts/AvenirLight.eot");
+  src: url("./../fonts/AvenirLight.eot");
   /* IE9 Compat Modes */
-  src: url("./fonts/AvenirLight.eot?#iefix") format("embedded-opentype"), url("./fonts/AvenirLight.woff2") format("woff2"), url("./fonts/AvenirLight.woff") format("woff"), url("./fonts/AvenirLight.ttf") format("truetype"); }
+  src: url("./../fonts/AvenirLight.eot?#iefix") format("embedded-opentype"), url("./../fonts/AvenirLight.woff2") format("woff2"), url("./../fonts/AvenirLight.woff") format("woff"), url("./../fonts/AvenirLight.ttf") format("truetype"); }
 
 @font-face {
   font-family: 'Avenir';
@@ -586,5 +586,8 @@ svg {
   .illus__svg--corner {
     top: 0;
     right: 0; }
+
+#corner--move {
+  display: none; }
 
 /*# sourceMappingURL=main.css.map */
