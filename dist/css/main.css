@@ -442,9 +442,17 @@ a {
 
 @font-face {
   font-family: 'Avenir';
+  font-weight: normal;
   src: url("./fonts/AvenirLight.eot");
   /* IE9 Compat Modes */
   src: url("./fonts/AvenirLight.eot?#iefix") format("embedded-opentype"), url("./fonts/AvenirLight.woff2") format("woff2"), url("./fonts/AvenirLight.woff") format("woff"), url("./fonts/AvenirLight.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Avenir';
+  font-weight: bold;
+  src: url("./fonts/AvenirHeavy.eot");
+  /* IE9 Compat Modes */
+  src: url("./fonts/AvenirHeavy.eot?#iefix") format("embedded-opentype"), url("./fonts/AvenirHeavy.woff2") format("woff2"), url("./fonts/AvenirHeavy.woff") format("woff"), url("./fonts/AvenirHeavy.ttf") format("truetype"); }
 
 /**
  * Basic typography style for copy text
@@ -535,9 +543,11 @@ h1, h2, h3, h4 {
   width: -webkit-min-content;
   width: -moz-min-content;
   width: min-content;
-  max-width: 100%; }
+  max-width: 100%;
+  position: relative; }
 
 .title__pagetitle {
+  position: relative;
   font-size: 5rem;
   line-height: 1;
   margin-top: 0;
@@ -549,7 +559,11 @@ h1, h2, h3, h4 {
   color: #C0A9A6;
   background: linear-gradient(92deg, #eae3ff, #c09eaf 30%, #c0b59e 60%, #9ec09f);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; }
+  -webkit-text-fill-color: transparent;
+  position: relative; }
+
+.title__subtitle {
+  position: relative; }
 
 .title__subtitle--left {
   text-align: left;
@@ -557,6 +571,12 @@ h1, h2, h3, h4 {
 
 .title__subtitle--right {
   text-align: right; }
+
+.content__link {
+  position: relative; }
+
+svg {
+  position: relative; }
 
 .illus__svg {
   position: absolute;
