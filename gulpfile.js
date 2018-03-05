@@ -3,7 +3,6 @@ var browserify = require('browserify');
 var buffer = require('vinyl-buffer');
 var del = require('del');
 var gulp = require('gulp');
-var imagemin = require('gulp-imagemin');
 var gulpif = require('gulp-if');
 var minifyCSS = require('gulp-csso');
 var sass = require('gulp-sass');
@@ -13,7 +12,6 @@ var sync = require('browser-sync').create();
 var uglify = require('gulp-uglify');
 var pxtorem = require('gulp-pxtorem');
 var plumber = require('gulp-plumber');
-var srcset = require('gulp-srcset');
 
 /////////////
 var postcss = require('gulp-postcss');
