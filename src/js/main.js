@@ -4,7 +4,7 @@ require('./morphing.js');
 document.addEventListener('DOMContentLoaded', function () {
 
   var tlSvg = new TimelineLite();
-  tlSvg.from('svg', 3, {delay: 0.3, opacity: 0, ease: Power2.easeOut})
+  //tlSvg.from('svg', 3, {delay: 0.3, opacity: 0, ease: Power2.easeOut})
   tlSvg.from('#corner', 10, {morphSVG: '#cornermove', yoyo:true, repeat: -1})
 
   var tl = new TimelineLite();
