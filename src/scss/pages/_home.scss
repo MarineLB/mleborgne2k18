@@ -1,3 +1,112 @@
 // -----------------------------------------------------------------------------
 // This file contains styles that are specific to the home page.
 // -----------------------------------------------------------------------------
+.content{
+  display: flex;
+  min-height:100vh;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 80%;
+  margin:auto;
+  padding:6rem 1rem;
+}
+
+.content__title{
+  width:min-content;
+  max-width: 100%;
+  position: relative;
+}
+.title__pagetitle{
+  position: relative;
+  font-size:3rem;
+  line-height:1;
+  margin-top:0;
+  margin-bottom:0;
+  width:min-content;
+  max-width: 100%;
+  color: $brand-color;
+  background: $gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+
+  @include breakpoint('small'){
+    font-size:4rem;
+
+  }
+
+  @include breakpoint('large'){
+    width:max-content;
+  }
+
+  @include breakpoint('huge'){
+
+    font-size:5rem;
+  }
+}
+.title__subtitle{
+  position: relative;
+}
+.title__subtitle--left{
+  text-align: left;
+  margin-bottom:0;
+}
+
+.title__subtitle--right{
+  @include breakpoint('large') {
+    text-align: right;
+  }
+}
+
+.content__link{
+  position: relative;
+
+  a{
+    margin-right: 1rem;
+
+    path{
+      transition: all .2s ease-out;
+    }
+    &:hover path{
+      fill:$brand-color;
+    }
+  }
+}
+
+svg{
+  position: relative;
+}
+
+.illus__svg{
+  position: absolute;
+  z-index: -1;
+  height:40vh;
+  width:auto;
+
+  @include breakpoint('small'){
+    height: 60vh;
+  }
+
+  @include breakpoint('medium'){
+    height: 82vh;
+  }
+
+  @include breakpoint('portrait'){
+    max-height: 50vh;
+  }
+
+  @include breakpoint('huge'){
+    height: 90vh;
+  }
+
+  &--corner{
+    top:0;
+    right:0;
+  }
+
+}
+
+#corner--move{
+  display: none;
+}

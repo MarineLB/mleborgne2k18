@@ -3,12 +3,14 @@
 // -----------------------------------------------------------------------------
 
 
-
+/// Header font family
+/// @type List
+$header-font-stack: 'Abril Fatface', cursive !default;
 
 
 /// Regular font family
 /// @type List
-$text-font-stack: 'Open Sans', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !default;
+$text-font-stack: 'Avenir', 'Open Sans', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !default;
 
 /// Code (monospace) font family
 /// @type List
@@ -20,15 +22,15 @@ $code-font-stack: 'Courier New', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono',
 
 /// Copy text color
 /// @type Color
-$text-color: rgb(34, 34, 34) !default;
+$text-color: #9B9B9B !default;
 
 /// Main brand color
 /// @type Color
-$brand-color: rgb(229, 0, 80) !default;
+$brand-color: #C0A9A6 !default;
 
 /// Light grey
 /// @type Color
-$light-grey: rgb(237, 237, 237) !default;
+$light-grey: #f4f4f4 !default;
 
 /// Medium grey
 /// @type Color
@@ -38,7 +40,7 @@ $mid-grey: rgb(153, 153, 153) !default;
 /// @type Color
 $dark-grey: rgb(68, 68, 68) !default;
 
-
+$gradient: linear-gradient(92deg, #eae3ff, #c09eaf 30%, #c0b59e 60%, #9ec09f);
 
 
 
@@ -53,13 +55,15 @@ $max-width: 1180px !default;
 /// Breakpoints map
 /// @prop {String} keys - Keys are identifiers mapped to a given length
 /// @prop {Map} values - Values are actual breakpoints expressed in pixels
+
+
 $breakpoints: (
-  'small': 320px,
-  'medium': 768px,
-  'large': 1024px,
-) !default;
-
-
+  'small': (min-width: 540px),
+  'medium': (min-width: 768px),
+  'large': (min-width: 1024px),
+  'huge': (min-width: 1200px),
+  'portrait': (orientation:portrait),
+);
 
 
 

@@ -3,5 +3,14 @@
  */
 body {
   color: $text-color;
-  font: normal 125% / 1.4 $text-font-stack;
+  font: normal 100% / 1 $text-font-stack;
+  text-transform: lowercase;
+  font-weight:100;
 }
+
+h1, h2, h3, h4{
+  font-family:$header-font-stack;
+  font-weight:normal;
+  color:red;
+}
+

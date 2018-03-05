@@ -7,6 +7,11 @@
  */
 html {
   box-sizing: border-box;
+  min-height:100%;
+}
+
+body{
+  min-height:100vh;
 }
 
 /**
@@ -32,4 +37,8 @@ a {
     color: $text-color;
     text-decoration: underline;
   }
+}
+
+a{
+  transition: all .2s ease-out;
 }
