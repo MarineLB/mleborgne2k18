@@ -16,6 +16,8 @@ lib-cov
 
 # Dist
 dist
+dist/
+dist/*
 
 # Coverage directory used by tools like istanbul
 coverage
