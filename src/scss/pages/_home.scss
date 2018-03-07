@@ -1,9 +1,9 @@
 // -----------------------------------------------------------------------------
 // This file contains styles that are specific to the home page.
 // -----------------------------------------------------------------------------
-.content{
+.section__content-wrapper{
   display: flex;
-  min-height:100vh;
+  height:100%;
   flex-direction: column;
   justify-content: space-between;
 
@@ -79,7 +79,7 @@ svg{
 }
 
 .illus__svg{
-  position: absolute;
+  position: fixed;
   z-index: -1;
   height:40vh;
   width:auto;

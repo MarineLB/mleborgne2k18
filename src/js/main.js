@@ -1,5 +1,6 @@
-import TweenMax from 'gsap'
-require('./morphing.js');
+import TweenMax from 'gsap';
+require('./morphing.js')
+require('./sections.js')
 
 document.addEventListener('DOMContentLoaded', function () {
 
