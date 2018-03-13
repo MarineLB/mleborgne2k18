@@ -7,11 +7,13 @@ let navButtons = document.querySelectorAll('a[href^="#"]');
 //var $navGoPrev = $(".go-prev");
 //var $navGoNext = $(".go-next");
 const slidesContainer = document.querySelector('.section__container');
+const corner = document.getElementById('corner');
 //const $slides = $(".section");
 const slides = slidesContainer.getElementsByClassName('section');
 const slidesArray = Array.prototype.slice.call( slidesContainer.children );
 //let $currentSlide = $slides.first();
 let currentSlide = slides[0];
+let previousSlide
 
 //Animating flag - is our app animating
 let isAnimating = false;
@@ -104,7 +106,6 @@ function onMouseWheel(event)
   event.preventDefault();
   //Normalize event wheel delta
   const delta = event.wheelDelta / 30 || -event.detail;
-  console.log(delta)
 
   //If the user scrolled up, it goes to previous slide, otherwise - to next slide
   if(delta < -1)
@@ -124,9 +125,11 @@ function onMouseWheel(event)
 * */
 function goToPrevSlide()
 {
-  if(currentSlide.previousElementSibling)
+  if (currentSlide.previousElementSibling)
   {
     goToSlide(currentSlide.previousElementSibling);
+  } else {
+    goToSlide(slides[slides.length-1])
   }
 }
 
@@ -135,9 +138,12 @@ function goToPrevSlide()
 * */
 function goToNextSlide()
 {
-  if(currentSlide.nextElementSibling)
+  if (currentSlide.nextElementSibling)
   {
     goToSlide(currentSlide.nextElementSibling);
+  } else {
+    console.log("go to beginning")
+    goToSlide(slides[0])
   }
 }
 
@@ -146,23 +152,35 @@ function goToNextSlide()
 * */
 function goToSlide(slide)
 {
-  console.log("in go to slide")
   //If the slides are not changing and there's such a slide
   if(!isAnimating && slide)
   {
     //setting animating flag to true
     isAnimating = true;
 
-    // TODO : créer une timeline pour mettre les éléments dans l'ordre
-
     let tlTransition = new TimelineLite();
     let content = currentSlide.querySelector('.section__content-wrapper');
-    tlTransition.to(content, 0.5, {opacity: 0, ease: Power2.easeOut, onComplete: console.log('content out')});
+
+    tlTransition.to(content, 0.5, {opacity: 0, ease: Power2.easeOut});
+
+    previousSlide = currentSlide;
     currentSlide = slide;
     content = currentSlide.querySelector('.section__content-wrapper');
-    console.log(slidesArray.indexOf(currentSlide))
-    tlTransition.to(slidesContainer, 0.3, {scrollTo: {y: pageHeight * slidesArray.indexOf(currentSlide) }, onComplete: console.log('scrolled')});
+
+    tlTransition.to(slidesContainer, 0.3, {scrollTo: {y: pageHeight * slidesArray.indexOf(currentSlide) }});
+    if(previousSlide === currentSlide) {
+      // do nothing
+      console.log('current === previous')
+    }else if (currentSlide === slides[0])  {
+        console.log('currentSlide === slides[0]')
+        tlTransition.to('#corner', 2, {morphSVG: '#cornerRef'})
+      } else if ( previousSlide === slides[0]){
+        console.log('previousSlide === slides[0]')
+        tlTransition.to('#corner', 2, {morphSVG: '#oval'})
+      }
+
     tlTransition.to(content, 0.5, {opacity: 1, ease: Power2.easeOut, onComplete: onSlideChangeEnd, onCompleteScope: this});
+
 
     //Animating menu items
     //TweenLite.to(navButtons.filter(".active"), 0.5, {className: "-=active"});
@@ -179,6 +197,7 @@ function onSlideChangeEnd()
 {
   console.log('new content in')
   isAnimating = false;
+
 }
 
 /*
@@ -204,4 +223,8 @@ function onResize(event)
     TweenLite.set(slidesContainer, {scrollTo: {y: pageHeight * slidesArray.indexOf(currentSlide) }});
   }
 
+}
+
+function test(){
+  consolge.log("je suis passé dans la fonction test")
 }

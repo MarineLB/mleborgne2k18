@@ -14,3 +14,4 @@ document.addEventListener('DOMContentLoaded', function () {
   tl.from('.content__link', 0.5, {opacity: 0, top: '5px', ease: Power2.easeOut}, '+=1')
 
 })
+
