@@ -8,12 +8,15 @@ let navButtons = document.querySelectorAll('a[href^="#"]');
 //var $navGoNext = $(".go-next");
 const slidesContainer = document.querySelector('.section__container');
 const corner = document.getElementById('corner');
+const svg = document.getElementsByClassName('illus__svg')[0]
 //const $slides = $(".section");
 const slides = slidesContainer.getElementsByClassName('section');
 const slidesArray = Array.prototype.slice.call( slidesContainer.children );
 //let $currentSlide = $slides.first();
 let currentSlide = slides[0];
 let previousSlide
+
+
 
 //Animating flag - is our app animating
 let isAnimating = false;
@@ -173,10 +176,12 @@ function goToSlide(slide)
       console.log('current === previous')
     }else if (currentSlide === slides[0])  {
         console.log('currentSlide === slides[0]')
-        tlTransition.to('#corner', 2, {morphSVG: '#cornerRef'})
+        TweenMax.to('#corner', 1, {morphSVG: '#cornerRef'})
+        toggleCornerClass()
       } else if ( previousSlide === slides[0]){
         console.log('previousSlide === slides[0]')
-        tlTransition.to('#corner', 2, {morphSVG: '#oval'})
+        TweenMax.to('#corner', 1, {morphSVG: '#oval'})
+        toggleCornerClass()
       }
 
     tlTransition.to(content, 0.5, {opacity: 1, ease: Power2.easeOut, onComplete: onSlideChangeEnd, onCompleteScope: this});
@@ -198,6 +203,10 @@ function onSlideChangeEnd()
   console.log('new content in')
   isAnimating = false;
 
+}
+
+function toggleCornerClass(){
+  svg.classList.toggle('illus__svg--corner')
 }
 
 /*
