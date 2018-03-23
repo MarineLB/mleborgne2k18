@@ -23,7 +23,8 @@ let pageHeight = window.innerHeight;
 //Key codes for up and down arrows on keyboard. We'll be using this to navigate change slides using the keyboard
 const keyCodes = {
   UP  : 38,
-  DOWN: 40
+  DOWN: 40,
+  SPACE: 32
 }
 
 //Going to the first slide
@@ -87,7 +88,7 @@ function onKeyDown(event)
     goToPrevSlide();
     event.preventDefault();
   }
-  else if(PRESSED_KEY === keyCodes.DOWN)
+  else if(PRESSED_KEY === keyCodes.DOWN || PRESSED_KEY === keyCodes.SPACE)
   {
     goToNextSlide();
     event.preventDefault();
@@ -100,8 +101,10 @@ function onKeyDown(event)
 * */
 function onMouseWheel(event)
 {
+  event.preventDefault();
   //Normalize event wheel delta
   const delta = event.wheelDelta / 30 || -event.detail;
+  console.log(delta)
 
   //If the user scrolled up, it goes to previous slide, otherwise - to next slide
   if(delta < -1)
@@ -113,7 +116,7 @@ function onMouseWheel(event)
     goToPrevSlide();
   }
 
-  event.preventDefault();
+
 }
 
 /*
@@ -143,26 +146,23 @@ function goToNextSlide()
 * */
 function goToSlide(slide)
 {
+  console.log("in go to slide")
   //If the slides are not changing and there's such a slide
   if(!isAnimating && slide)
   {
     //setting animating flag to true
     isAnimating = true;
 
-    let content = currentSlide.querySelector('.section__content-wrapper');
-    TweenMax.to(content, 0.3, {opacity: 0, ease: Power2.easeOut});
-
-    currentSlide = slide;
-
-    //Sliding to current slide
-    TweenMax.to(slidesContainer, 0.75, {delay: 0.5, scrollTo: {y: pageHeight * slidesArray.indexOf(currentSlide) }});
-
-    content = currentSlide.querySelector('.section__content-wrapper');
-    TweenMax.to(content, 0.3, {delay: 2, opacity: 1, ease: Power2.easeOut, onComplete: onSlideChangeEnd(), onCompleteScope: this});
-
     // TODO : créer une timeline pour mettre les éléments dans l'ordre
 
-
+    let tlTransition = new TimelineLite();
+    let content = currentSlide.querySelector('.section__content-wrapper');
+    tlTransition.to(content, 0.5, {opacity: 0, ease: Power2.easeOut, onComplete: console.log('content out')});
+    currentSlide = slide;
+    content = currentSlide.querySelector('.section__content-wrapper');
+    console.log(slidesArray.indexOf(currentSlide))
+    tlTransition.to(slidesContainer, 0.3, {scrollTo: {y: pageHeight * slidesArray.indexOf(currentSlide) }, onComplete: console.log('scrolled')});
+    tlTransition.to(content, 0.5, {opacity: 1, ease: Power2.easeOut, onComplete: onSlideChangeEnd, onCompleteScope: this});
 
     //Animating menu items
     //TweenLite.to(navButtons.filter(".active"), 0.5, {className: "-=active"});
@@ -177,6 +177,7 @@ function goToSlide(slide)
 * */
 function onSlideChangeEnd()
 {
+  console.log('new content in')
   isAnimating = false;
 }
 
