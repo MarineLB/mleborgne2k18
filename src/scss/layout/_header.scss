@@ -9,6 +9,7 @@
   color:white;
   text-transform: lowercase;
   font-size:1rem;
+  letter-spacing: 2px;
   opacity:0.9;
 
   &:hover{
@@ -19,5 +20,23 @@
   @include breakpoint('large'){
     top:4.5rem;
     left:4.5rem;
+  }
+}
+
+.scroll__indication{
+  display: none;
+  @include breakpoint('large'){
+
+    display: block;
+    position: absolute;
+    transform: rotate(-90deg);
+    letter-spacing:2px;
+    font-size:1rem;
+    left: 3.5rem;
+    bottom: 5.5rem;
+  }
+
+  .section-1-state + &{
+    color: #d9d9d9;
   }
 }
