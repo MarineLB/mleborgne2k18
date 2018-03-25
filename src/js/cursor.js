@@ -16,6 +16,7 @@ links.forEach(function(link) {
   link.style.cursor = "none";
   link.addEventListener('mouseover', function(e){
     cursor.classList.add('hover');
+
   });
   link.addEventListener('mouseout', function(e){
     cursor.classList.remove('hover');

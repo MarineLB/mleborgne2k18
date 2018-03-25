@@ -80,5 +80,4 @@ function changeText(event){
     console.log("terminé de change !");
   })
 
-
 }
