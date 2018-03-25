@@ -174,7 +174,7 @@ function goToSlide(slide)
       let rev1 = new br.RevealFx(document.querySelector('.openwork.active'), {
         revealSettings : {
           backgroundColor: 'white',
-          delay:0.25,
+          delay:1,
           onCover: function(contentEl, revealerEl) {
             contentEl.style.opacity = 1;
           }
