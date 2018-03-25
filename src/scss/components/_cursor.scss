@@ -1,0 +1,30 @@
+.cursor{
+  top:-100%;
+  width:2rem;
+  height:2rem;
+  background: $light-grey;
+  opacity:0.5;
+  border-radius: 100px;
+  transform: scale(1);
+  position: fixed;
+  will-change: transform;
+  transition: transform .3s ease-out;
+  &:active{
+    transform: scale(1.5);
+  }
+
+  display: none;
+  @include breakpoint('small') {
+    display: block;
+  }
+
+  &.hover{
+    transform: scale(1.5);
+    opacity:0.8;
+  }
+  body.animating &,
+  &.hide{
+    opacity:0;
+    display: none;
+  }
+}

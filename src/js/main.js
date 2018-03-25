@@ -1,6 +1,10 @@
 import TweenMax from 'gsap';
+import Granim from 'granim';
 require('./morphing.js')
 require('./sections.js')
+require('./description.js')
+require('./gradient.js')
+require('./cursor.js')
 
 document.addEventListener('DOMContentLoaded', function () {
 

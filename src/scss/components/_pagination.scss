@@ -1,0 +1,76 @@
+#pagination {
+  display:flex;
+  width:100%;
+  justify-content:center;
+  align-items:center;
+  position:absolute;
+  z-index: 9;
+  bottom:1.5rem;
+  opacity:1;
+  transition: all .3s ease-in-out;
+
+  @include breakpoint('large') {
+    margin-left:4.5rem;
+    width:auto;
+    flex-direction:column;
+    align-items:flex-start;
+    top:50%;
+    bottom:auto;
+    transform:translateY(-50%);
+  }
+
+  body.animating &{
+    opacity: 0.8;
+    cursor: none;
+    & a{
+      cursor: none;
+      pointer-events: none;
+    }
+  }
+}
+
+#pagination .pagination__link {
+  position: relative;
+  display: inline-block;
+  text-align:center;
+  z-index: 1;
+  line-height:0;
+  outline:none;
+  cursor:pointer;
+  margin-right:1rem;
+  @include breakpoint('large') {
+    padding: 0.1rem 1rem 0.6rem 0;
+    margin-bottom:0.35rem;
+    margin-right:0;
+  }
+}
+
+#pagination.section-1-state .pagination__link:before,
+#pagination.default-state .pagination__link:before{
+  background:#d9d9d9;
+}
+#pagination.section-2-state .pagination__link:before{
+  //background:$color4;
+}
+
+#pagination .pagination__link:before{
+  content:'';
+  display:inline-block;
+  width:8px;
+  height:8px;
+  border-radius: 30px;
+  background:#fff;
+  transition: all .3s ease-out;
+  opacity:0.4;
+  @include breakpoint('large') {
+    width:1.5rem;
+    height:1px;
+    opacity:1;
+  }
+}
+
+#pagination .pagination__link.active:before,
+#pagination .pagination__link:hover:before{
+  width:2.25rem;
+  opacity:1;
+}

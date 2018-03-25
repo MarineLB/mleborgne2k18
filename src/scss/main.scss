@@ -25,11 +25,16 @@
 
 // 5. Components
 @import
-  'components/button';
+  'components/button',
+  'components/canvas',
+  'components/pagination',
+  'components/cursor';
 
 // 6. Page-specific styles
 @import
-  'pages/home';
+  'pages/home',
+  'pages/description',
+  'pages/projects';
 
 // 7. Themes
 @import

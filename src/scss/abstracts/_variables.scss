@@ -5,12 +5,12 @@
 
 /// Header font family
 /// @type List
-$header-font-stack: 'Abril Fatface', cursive !default;
+$header-font-stack: 'Quicksand', sans-serif !default;
 
 
 /// Regular font family
 /// @type List
-$text-font-stack: 'Avenir', 'Open Sans', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !default;
+$text-font-stack: 'Quicksand', 'Open Sans', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !default;
 
 /// Code (monospace) font family
 /// @type List
@@ -22,11 +22,12 @@ $code-font-stack: 'Courier New', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono',
 
 /// Copy text color
 /// @type Color
-$text-color: #9B9B9B !default;
+$text-color: #fff !default;
+$text-color-on-white: #9B9B9B;
 
 /// Main brand color
 /// @type Color
-$brand-color: #C0A9A6 !default;
+$brand-color: #F3ADAD !default;
 
 /// Light grey
 /// @type Color
@@ -40,7 +41,13 @@ $mid-grey: rgb(153, 153, 153) !default;
 /// @type Color
 $dark-grey: rgb(68, 68, 68) !default;
 
-$gradient: linear-gradient(92deg, #eae3ff, #c09eaf 30%, #c0b59e 60%, #9ec09f);
+$color1:#faeaab;
+$color2:#f3adad;
+$color3:#8377D7;
+$color4:#1432da;
+
+
+$gradient: linear-gradient(315deg, $color4, $color3 26%, $color2 70%, $color1);
 
 
 

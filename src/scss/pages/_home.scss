@@ -1,16 +1,6 @@
 // -----------------------------------------------------------------------------
 // This file contains styles that are specific to the home page.
 // -----------------------------------------------------------------------------
-.section__content-wrapper{
-  display: flex;
-  height:100%;
-  flex-direction: column;
-  justify-content: space-between;
-  opacity: 0;
-  width: 80%;
-  margin:auto;
-  padding:6rem 1rem;
-}
 
 .content__title{
   width:min-content;
@@ -19,36 +9,24 @@
 }
 .title__pagetitle{
   position: relative;
-  font-size:3rem;
   margin-top:0;
   margin-bottom:0;
   width:min-content;
   max-width: 100%;
-  color: $brand-color;
-  background: $gradient;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   position: relative;
-
-  @include breakpoint('small'){
-    font-size:4rem;
-  }
 
   @include breakpoint('large'){
     width:max-content;
   }
-
-  @include breakpoint('huge'){
-
-    font-size:5rem;
-  }
 }
 .title__subtitle{
   position: relative;
+  font-size:1rem;
 }
 .title__subtitle--left{
   text-align: left;
   margin-bottom:0;
+  //text-transform: uppercase;
 }
 
 .title__subtitle--right{
@@ -56,61 +34,38 @@
     text-align: right;
   }
 }
+//lien réseaux sociaux
 
 .content__link{
   position: relative;
-
   a{
-    margin-right: 1rem;
+    margin-right: 1.5rem;
+    opacity:0.4;
 
     path{
       transition: all .2s ease-out;
     }
+    &:hover{
+      opacity:1;
+    }
     &:hover path{
-      fill:$brand-color;
+      fill:white;
     }
   }
 }
 
-svg{
-  position: relative;
-}
-
-.illus__svg{
-  position: fixed;
-  z-index: -1;
-  height:40vh;
-  width:auto;
-  transition: all 1s ease-out;
-  top: 50%;
-  right: 50%;
-  transform: translate(50%, -50%);
-
-  @include breakpoint('small'){
-    height: 60vh;
+#section-1 .content__link a{
+  opacity:1;
+  &:first-child:hover path{
+    fill:$color1;
   }
-
-  @include breakpoint('medium'){
-    height: 82vh;
+  &:nth-child(2):hover path{
+    fill:$color2;
   }
-
-  @include breakpoint('portrait'){
-    max-height: 50vh;
+  &:hover path{
+    fill:$color3;
   }
-
-  @include breakpoint('huge'){
-    height: 90vh;
+  &:last-child:hover path{
+    fill:$color4;
   }
-
-  &--corner{
-    top:0;
-    right:0;
-    transform: none;
-  }
-
-}
-
-#corner--move,
-#oval{
-  display: none;
 }
