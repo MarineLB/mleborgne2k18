@@ -1,17 +1,20 @@
-//First the variables our app is going to use need to be declared
-
+import granimInstance from './gradient';
 
 //Only links that starts with #
 //var $navButtons = $("nav a").filter("[href^=#]");
-let navButtons = document.querySelectorAll('a[href^="#"]');
+let navButtons = document.querySelectorAll('.pagination__link, .site-title');
 //var $navGoPrev = $(".go-prev");
 //var $navGoNext = $(".go-next");
 const slidesContainer = document.querySelector('.section__container');
 //const $slides = $(".section");
 const slides = slidesContainer.getElementsByClassName('section');
 const slidesArray = Array.prototype.slice.call( slidesContainer.children );
+const pagination = document.querySelector('#pagination');
 //let $currentSlide = $slides.first();
 let currentSlide = slides[0];
+let previousSlide
+
+
 
 //Animating flag - is our app animating
 let isAnimating = false;
@@ -63,6 +66,7 @@ function onNavButtonClick(event)
 {
   //The clicked button
   const button = this;
+  event.preventDefault();
 
   //The slide the button points to
   const slide = document.querySelector(this.getAttribute('href'));
@@ -80,7 +84,6 @@ function onNavButtonClick(event)
 * */
 function onKeyDown(event)
 {
-  console.log("keydown");
   let PRESSED_KEY = event.keyCode;
 
   if(PRESSED_KEY === keyCodes.UP)
@@ -104,7 +107,6 @@ function onMouseWheel(event)
   event.preventDefault();
   //Normalize event wheel delta
   const delta = event.wheelDelta / 30 || -event.detail;
-  console.log(delta)
 
   //If the user scrolled up, it goes to previous slide, otherwise - to next slide
   if(delta < -1)
@@ -124,9 +126,11 @@ function onMouseWheel(event)
 * */
 function goToPrevSlide()
 {
-  if(currentSlide.previousElementSibling)
+  if (currentSlide.previousElementSibling)
   {
     goToSlide(currentSlide.previousElementSibling);
+  } else {
+    goToSlide(slides[slides.length-1])
   }
 }
 
@@ -135,9 +139,11 @@ function goToPrevSlide()
 * */
 function goToNextSlide()
 {
-  if(currentSlide.nextElementSibling)
+  if (currentSlide.nextElementSibling)
   {
     goToSlide(currentSlide.nextElementSibling);
+  } else {
+    goToSlide(slides[0])
   }
 }
 
@@ -146,23 +152,36 @@ function goToNextSlide()
 * */
 function goToSlide(slide)
 {
-  console.log("in go to slide")
   //If the slides are not changing and there's such a slide
   if(!isAnimating && slide)
   {
     //setting animating flag to true
     isAnimating = true;
-
-    // TODO : créer une timeline pour mettre les éléments dans l'ordre
+    document.getElementsByTagName('body')[0].classList.add('animating');
 
     let tlTransition = new TimelineLite();
     let content = currentSlide.querySelector('.section__content-wrapper');
-    tlTransition.to(content, 0.5, {opacity: 0, ease: Power2.easeOut, onComplete: console.log('content out')});
+
+    tlTransition.to(content, 0.5, {opacity: 0, ease: Power2.easeOut});
+
+    previousSlide = currentSlide;
     currentSlide = slide;
     content = currentSlide.querySelector('.section__content-wrapper');
-    console.log(slidesArray.indexOf(currentSlide))
-    tlTransition.to(slidesContainer, 0.3, {scrollTo: {y: pageHeight * slidesArray.indexOf(currentSlide) }, onComplete: console.log('scrolled')});
+
+    changeGradient(slide);
+
+
+    tlTransition.to(slidesContainer, 0.3, {scrollTo: {y: pageHeight * slidesArray.indexOf(currentSlide) }});
+    if(previousSlide === currentSlide) {
+        // premier chargement
+    }else if (currentSlide === slides[0])  {
+        // retour sur accueil
+      } else if ( previousSlide === slides[0]){
+        // vers une autre slide que l'accueil
+      }
+
     tlTransition.to(content, 0.5, {opacity: 1, ease: Power2.easeOut, onComplete: onSlideChangeEnd, onCompleteScope: this});
+
 
     //Animating menu items
     //TweenLite.to(navButtons.filter(".active"), 0.5, {className: "-=active"});
@@ -177,8 +196,9 @@ function goToSlide(slide)
 * */
 function onSlideChangeEnd()
 {
-  console.log('new content in')
   isAnimating = false;
+  document.getElementsByTagName('body')[0].classList.remove('animating');
+
 }
 
 /*
@@ -204,4 +224,21 @@ function onResize(event)
     TweenLite.set(slidesContainer, {scrollTo: {y: pageHeight * slidesArray.indexOf(currentSlide) }});
   }
 
+}
+
+function changeGradient(slide){
+  const stateName = ''+slide.id+'-state';
+  //change gradient param = "section1-state"
+  granimInstance.changeState(stateName);
+  //remove active class from old pagination link
+    document.querySelector('.pagination__link.active').classList.remove('active');
+
+  //add active class to new pagination link
+  document.querySelector('#'+stateName).classList.add('active');
+  //add current slide class to pagination wrapper (to handle colors)
+  pagination.className = stateName;
+}
+
+function test(){
+  console.log("je suis passé dans la fonction test")
 }

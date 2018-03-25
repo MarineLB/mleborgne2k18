@@ -1,3 +1,23 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the header of the site/application.
 // -----------------------------------------------------------------------------
+.site-title{
+  position: absolute;
+  z-index: 9;
+  top:1.5rem;
+  left:1.5rem;
+  color:white;
+  text-transform: lowercase;
+  font-size:1rem;
+  opacity:0.9;
+
+  &:hover{
+    opacity:1;
+    color: white;
+  }
+
+  @include breakpoint('large'){
+    top:4.5rem;
+    left:4.5rem;
+  }
+}
