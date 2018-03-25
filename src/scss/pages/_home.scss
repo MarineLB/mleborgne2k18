@@ -39,7 +39,11 @@
 .content__link{
   position: relative;
   a{
-    margin-right: 1.5rem;
+    margin-right: 1rem;
+
+    @include breakpoint('small'){
+      margin-right: 1.5rem;
+    }
     opacity:0.4;
 
     path{
