@@ -7,6 +7,9 @@
   border-radius: 100px;
   transform: scale(1);
   position: fixed;
+  z-index:9999;
+  user-select: none;
+  pointer-events: none;
   will-change: transform;
   transition: transform .3s ease-out;
   &:active{

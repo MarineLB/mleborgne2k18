@@ -5,6 +5,7 @@ require('./sections.js')
 require('./description.js')
 require('./gradient.js')
 require('./cursor.js')
+require('./works.js')
 
 document.addEventListener('DOMContentLoaded', function () {
 

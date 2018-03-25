@@ -1,4 +1,5 @@
 import granimInstance from './gradient';
+import * as br from './blockReveal';
 
 //Only links that starts with #
 //var $navButtons = $("nav a").filter("[href^=#]");
@@ -169,6 +170,18 @@ function goToSlide(slide)
     content = currentSlide.querySelector('.section__content-wrapper');
 
     changeGradient(slide);
+    if(currentSlide === slides[3]){
+      let rev1 = new br.RevealFx(document.querySelector('.openwork.active'), {
+        revealSettings : {
+          backgroundColor: 'white',
+          delay:0.25,
+          onCover: function(contentEl, revealerEl) {
+            contentEl.style.opacity = 1;
+          }
+        }
+      });
+      rev1.reveal();
+    }
 
 
     tlTransition.to(slidesContainer, 0.3, {scrollTo: {y: pageHeight * slidesArray.indexOf(currentSlide) }});
