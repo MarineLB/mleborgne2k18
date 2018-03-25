@@ -52,10 +52,9 @@ class TextScramble {
 }
 
 const phrases = [
-  'J’aspire à développer des interfaces web vivantes, vibrantes, qui étonnent et impressionnent. ' +
-  'Pour cela, je souhaite apporter mon petit grain de sel de la réflexion jusqu’à la réalisation.',
-  'Beaucoup d’autres choses me passionnent dans la vie. En vrac : les créations originales Netflix, les lapins, les festivals de musiques, le DIY, la Bretagne et enfin la bière du vendredi soir',
-  'La préservation de la planète, la lutte contre les inégalités ou la protection des animaux sont des sujets qui me tiennent à coeur. J’aimerais mettre mes compétences au service de ces causes'
+  'I aspire to develop vibrant web interfaces that amaze and impress. For this, I want to bring my little grain of salt from start to finish.',
+  'My interests aren\'t limited to front end dev ! I love many other things : Netflix originals, rabbits, music festivals, DIY and of course the Friday night beer !',
+  'The preservation of the planet, the fight against inequalities or the protection of animals are important to me. I would like to use my skills to  make the world a better place.'
 ]
 
 const el = document.querySelector('.adjectives__description');
