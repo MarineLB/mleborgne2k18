@@ -1,4 +1,5 @@
 import granimInstance from './gradient';
+import * as hjs from 'hammerjs';
 import * as br from './blockReveal';
 
 //Only links that starts with #
@@ -13,7 +14,10 @@ const slidesArray = Array.prototype.slice.call( slidesContainer.children );
 const pagination = document.querySelector('#pagination');
 //let $currentSlide = $slides.first();
 let currentSlide = slides[0];
-let previousSlide
+let previousSlide;
+
+let hammer    = new Hammer.Manager(slidesContainer);
+let swipe     = new Hammer.Swipe();
 
 
 
@@ -34,6 +38,8 @@ const keyCodes = {
 //Going to the first slide
 goToSlide(currentSlide);
 
+// add swipe recognizer
+hammer.add(swipe);
 
 /*
 *   Adding event listeners
@@ -47,6 +53,12 @@ window.addEventListener('DOMMouseScroll', onMouseWheel);
 //document.on("keydown", onKeyDown);
 window.addEventListener('keydown', onKeyDown);
 //navButtons.on("click", onNavButtonClick);
+hammer.on('swipeleft swipeup', goToPrevSlide());
+hammer.on('swiperight swipebottom', goToNextSlide());
+
+hammer.on('panright', function(){
+  console.log('panright detected');
+});
 
 //ajouter un foreach
 navButtons.forEach(function(button) {

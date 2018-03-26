@@ -1,16 +1,23 @@
 #section-3{
   .section__content-wrapper{
+    justify-content:flex-start;
     @include breakpoint('large') {
       display: grid;
       grid-template-columns: 0 1fr;
       grid-gap: 0rem;
       grid-template-rows: 1fr 1fr 1fr 50%;
       grid-template-columns: 3fr 2fr 2fr 4fr;
+      justify-content:space-between;
     }
   }
   .description__container{
     grid-column: 3 / -1;
     grid-row: span 1 / -1;
+
+    margin-top:2rem;
+    @include breakpoint('large') {
+      margin-top:0;
+    }
   }
 
   .adjectives__link:first-child{
@@ -29,6 +36,10 @@
 
 .adjectives__link{
   line-height: 1;
+  margin:1rem 0;
+  @include breakpoint('large'){
+    margin:0;
+  }
 }
 
 .adjectives__link a{
