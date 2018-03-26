@@ -51,8 +51,8 @@ window.addEventListener('DOMMouseScroll', onMouseWheel);
 //document.on("keydown", onKeyDown);
 window.addEventListener('keydown', onKeyDown);
 //navButtons.on("click", onNavButtonClick);
-hammer.on('swipeleft swipeup', goToPrevSlide);
-hammer.on('swiperight swipebottom', goToNextSlide);
+hammer.on('swiperight swipebottom', goToPrevSlide);
+hammer.on('swipeleft swipeup', goToNextSlide);
 
 
 //ajouter un foreach
