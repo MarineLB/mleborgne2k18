@@ -20,13 +20,16 @@
 
 .section__content-wrapper{
   display: flex;
-  height:100vh;
+  height:100%;
   flex-direction: column;
   justify-content: space-between;
   opacity: 0;
   width: auto;
   margin: 0 4rem;
   padding: 5.5rem 0;
+  @include breakpoint('small') {
+    height:100vh;
+  }
   @include breakpoint('medium') {
     margin: 0 7rem;
     padding: 7rem 0;

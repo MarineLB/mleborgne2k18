@@ -3,7 +3,7 @@ import * as br from './blockReveal';
 const worksLinks = document.querySelectorAll('.work__link');
 
 worksLinks.forEach(function(link) {
-  link.addEventListener('click', changeWork);
+  link.addEventListener('mouseenter', changeWork);
 })
 
 function changeWork(event){
