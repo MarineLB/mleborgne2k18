@@ -16,10 +16,7 @@ const pagination = document.querySelector('#pagination');
 let currentSlide = slides[0];
 let previousSlide;
 
-let hammer    = new Hammer.Manager(slidesContainer);
-let swipe     = new Hammer.Swipe();
-
-
+let hammer    = new Hammer(slidesContainer);
 
 //Animating flag - is our app animating
 let isAnimating = false;
@@ -39,7 +36,8 @@ const keyCodes = {
 goToSlide(currentSlide);
 
 // add swipe recognizer
-hammer.add(swipe);
+hammer.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
+
 
 /*
 *   Adding event listeners
@@ -53,12 +51,9 @@ window.addEventListener('DOMMouseScroll', onMouseWheel);
 //document.on("keydown", onKeyDown);
 window.addEventListener('keydown', onKeyDown);
 //navButtons.on("click", onNavButtonClick);
-hammer.on('swipeleft swipeup', goToPrevSlide());
-hammer.on('swiperight swipebottom', goToNextSlide());
+hammer.on('swipeleft swipeup', goToPrevSlide);
+hammer.on('swiperight swipebottom', goToNextSlide);
 
-hammer.on('panright', function(){
-  console.log('panright detected');
-});
 
 //ajouter un foreach
 navButtons.forEach(function(button) {
