@@ -60,12 +60,35 @@
 
 .detail__title{
   opacity: 0.4;
+  margin-bottom:0;
   @include breakpoint('large') {
     display:block;
   }
 }
 
-.detail__content,
+.detail__ghost{
+  visibility: hidden;
+  opacity:0;
+  margin-top:0;
+}
+
+.detail__content--wrapper{
+  margin-top:0;
+  position: relative;
+}
+
+
+.detail__content{
+  opacity:0;
+  display: none;
+  //transition: all .7s ease-out;
+  &.active{
+    opacity:1;
+    display: block;
+    transition: all .7s ease-out .7s;
+  }
+}
+
 .openwork{
   display: none;
   &.active{

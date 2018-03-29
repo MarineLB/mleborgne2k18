@@ -5,6 +5,7 @@ import * as br from './blockReveal';
 //Only links that starts with #
 //var $navButtons = $("nav a").filter("[href^=#]");
 let navButtons = document.querySelectorAll('.pagination__link, .site-title');
+const scrollIndication = document.querySelector('.scroll__indication');
 //var $navGoPrev = $(".go-prev");
 //var $navGoNext = $(".go-next");
 const slidesContainer = document.querySelector('.section__container');
